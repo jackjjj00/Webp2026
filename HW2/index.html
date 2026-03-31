@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>資工選課表 HW2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* 沿用 ex3 老師提供的表格樣式 */
+        table {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        td, th {
+            border: 1px solid #ddd;
+            padding: 6px;
+        }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        tr:hover { background-color: #ddd; }
+        th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #04AA6D;
+            color: white;
+        }
+    </style>
+</head>
+<body class="p-4">
+
+    <h2>資工選課表</h2>
+
+    <table id="csie">
+        <thead>
+            <tr>
+                <th>開課單位</th>
+                <th>課程名稱</th>
+                <th>授課教師</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>資工系</td>
+                <td>
+                    物件導向軟體設計 
+                    <button type="button" class="btn btn-sm btn-outline-info ms-2 rounded-circle" 
+                            data-bs-toggle="popover" 
+                            data-bs-html="true" 
+                            title="課程資訊 <a href='https://catalog.cgu.edu.tw/coursedata?sectionid=A2337' target='_blank' style='font-size:12px; float:right;'>課程詳細資料</a>" 
+                            data-bs-content="<b>開課單位:</b> 資工系 3-甲<br><b>科目代號(學分):</b> IT3004(3)<br><b>開課序號:</b> A2337<br><b>修課學生:</b> 本校:64人;外校:0人<br><b>人數限制:</b> 10-60<br><b>上課時間地點:</b> 星期五 2 (09:10)~4 (12:00) 資工系電腦教室2">
+                        +
+                    </button>
+                </td>
+                <td>黃崇源</td>
+            </tr>
+            <tr><td>資工系</td><td>計算機網路實驗</td><td>李春良</td></tr>
+            <tr><td>資工系</td><td>作業系統實務</td><td>張哲維</td></tr>
+            <tr><td>資工系</td><td>生物統計</td><td>陳光武</td></tr>
+            <tr><td>資工系</td><td>通訊系統</td><td>陳仁暉</td></tr>
+            <tr><td>資工系</td><td>軟硬體專題(2)</td><td>魏志達</td></tr>
+        </tbody>
+    </table>
+
+    <button onclick="changeResult()" class="btn btn-primary">Change</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        // 老師簡報裡的 Click 事件：將第一列的黃崇源改成李春良
+        function changeResult() {
+            var myTable = document.getElementById("csie");
+            myTable.rows[1].cells[2].innerHTML = "李春良"; 
+        }
+
+        // 初始化 Bootstrap Popover 讓彈出視窗生效
+        document.addEventListener('DOMContentLoaded', function () {
+            var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+            var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+                return new bootstrap.Popover(popoverTriggerEl, {
+                    trigger: 'focus' // 點擊旁邊空白處可自動關閉
+                })
+            })
+        });
+    </script>
+</body>
+</html>
