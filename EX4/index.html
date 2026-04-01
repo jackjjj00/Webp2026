@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Console 聖誕樹</title>
+</head>
+<body>
+    <h2>聖誕樹已經種在 Console 裡囉！🎄</h2>
+    <p>請按鍵盤上 <b>F12</b> 開啟開發者工具，並切換到 <b>Console (主控台)</b> 頁籤查看結果。</p>
+
+    <script>
+        // 主程式：呼叫印出樹冠與樹幹的函數
+        function tree(n) {
+            printTreeTop(n);
+            printTreeBottom(n);
+        }
+
+        // 印出樹冠 (葉子部分)
+        function printTreeTop(n) {
+            for (let i = 1; i <= n; i++) {
+                // 每層的空白數為 n - i
+                let spaces = repeatchar(n - i, ' ');
+                // 每層的星星數為 2 * i - 1 (1, 3, 5, 7...)
+                let stars = repeatchar(2 * i - 1, '*');
+                console.log(spaces + stars);
+            }
+        }
+
+        // 印出樹幹
+        function printTreeBottom(n) {
+            // 樹幹高度這裡設定為 n-1 (以符合簡報截圖 n=4 時，樹幹為 3 行的比例)
+            for (let i = 0; i < n - 1; i++) {
+                // 樹幹的空白數固定為 n - 1，再加上一顆星星
+                let spaces = repeatchar(n - 1, ' ');
+                console.log(spaces + '*');
+            }
+        }
+
+        // 重複字元函數：接收數量(n)與字元(arg_char)
+        function repeatchar(n, arg_char) {
+            let result = "";
+            for (let i = 0; i < n; i++) {
+                result += arg_char;
+            }
+            return result;
+        }
+
+        // 執行函數，印出一棵 n=4 的聖誕樹
+        console.log("=== 這是一棵 n=4 的聖誕樹 ===");
+        tree(4);
+    </script>
+</body>
+</html>
