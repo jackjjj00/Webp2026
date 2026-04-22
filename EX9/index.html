@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>EX9 - Flickr 照片牆</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <style>
+        /* 照片牆的排版樣式 */
+        .photo-wall {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        /* 每張照片卡片的樣式 */
+        .photo-card {
+            width: 300px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .photo-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="p-4 bg-light">
+    <h2 class="text-center mb-4">📷 Flickr 最新照片牆</h2>
+    
+    <div id="gallery" class="photo-wall">
+        <h5 class="text-secondary">努力載入照片中，請稍候...</h5>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
